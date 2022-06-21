@@ -4,7 +4,7 @@ from javascript import require
 
 cron = require("node-cron")
 
-pcl = []
+pcl_list = []
 headers = {"AccountKey": "ShcXnDanSKqJ53wy47unFg=="}
 lines = {
     "CCL": "Circle Line",
@@ -22,17 +22,26 @@ lines_shorthand_list = lines.keys()
 
 
 def update_pcl():
-    global pcl
-    pcl = []
+    print("Updating PCL...")
+    global pcl_list
+    pcl_list = []
     for train_line in lines_shorthand_list:
         url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
 
         response = requests.get(url, headers=headers)
         response_data = response.json()
-        pcl.append(response_data)
-    # print(pcl)
+        # print(response_data)
+        pcl_list.append(response_data)
+    # print(pcl_list)
 
 
+for train_line in lines_shorthand_list:
+    url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
+
+    response = requests.get(url, headers=headers)
+    response_data = response.json()
+    # print(response_data)
+    pcl_list.append(response_data)
 cron.schedule('*/2 * * * *', lambda cb: update_pcl())
 '''
 Train lines supported:
@@ -59,15 +68,23 @@ router = APIRouter(
 
 @router.get("")
 def platform_crowd_level(train_line: str):
-    url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
+    # url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
 
-    response = requests.get(url, headers=headers)
-    response_data = response.json()
-    # print(response_data)
+    # response = requests.get(url, headers=headers)
+    # response_data = response.json()
 
-    return response_data
+    return ""
+
+
+@router.get("/{station_code}")
+def station_crowd_level(station_code: str):
+    for station in pcl_list["value"]:
+        if station["Station"] == station_code:
+            return station
+    # return pcl
+
 
 
 @router.get("/all")
 def platform_crowd_level_all():
-    return pcl
+    return pcl_list

@@ -1,0 +1,55 @@
+{
+    "SG": {
+        "andor": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/d555e635-e658-4511-b3ba-47afdc18b33d/pageSize/15/page/1",
+            "DmcSeriesBundle": "https://disney.content.edge.bamgrid.com/svc/content/DmcSeriesBundle/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/encodedSeriesId/3xsQKWG00GL5"
+        },
+        "daredevil-s1": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/3182035a-c885-4bf2-84e3-2343b70d17cc/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "daredevil-s2": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/36e58c3c-3ebd-40c7-aa40-4493248d917f/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "daredevil-s3": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/9aa4c112-39d2-4997-ba62-c097092047cc/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "loki": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/d4b2d0c7-f3c6-412b-b8d7-7d24191b2427/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "moon-knight": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/21e629f5-f7eb-4932-907a-f3ea02d0b03f/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "obi-wan-kenobi": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/2c443663-2a5c-4e11-9e3c-6b6b9380d23d/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "ms-marvel": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/73aeb3de-4bc5-4a9e-85cb-199ff8ddd124/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "she-hulk": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/b33f397d-912e-407b-86cf-0fba507ed619/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "she-hulk-attorney-at-law": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/b33f397d-912e-407b-86cf-0fba507ed619/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "the-mandalorian-s1": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/b423b024-b641-45e8-a075-575c35292100/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "the-mandalorian-s2": {
+            "DmcEpisodes": "https://disney.content.edge.bamgrid.com/svc/content/DmcEpisodes/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/seasonId/4c34b69d-d959-483a-bd2a-9ddb9767e695/pageSize/15/page/1",
+            "DmcSeriesBundle": ""
+        },
+        "prey": {
+            "DmcVideoBundle": "https://disney.content.edge.bamgrid.com/svc/content/DmcVideoBundle/version/5.1/region/SG/audience/k-false,l-true/maturity/1870/language/en-GB/encodedFamilyId/5Y0VIrKjUDWm"
+        }
+    }
+}

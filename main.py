@@ -1,15 +1,19 @@
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
+from routers.v1 import disney_plus
 from routers.v1 import platform_crowd_level as pcl
 
 HOST = "0.0.0.0"
 PORT = 8080
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 apiv1 = FastAPI()
+apiv1.include_router(disney_plus.router)
 apiv1.include_router(pcl.router)
 
 app.mount("/api/v1", apiv1)
