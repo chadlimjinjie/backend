@@ -69,5 +69,5 @@ def platform_crowd_level(train_line: str):
 
 
 @router.get("/all")
-def platform_crowd_level():
+def platform_crowd_level_all():
     return pcl
