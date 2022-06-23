@@ -31,7 +31,8 @@ def update_pcl():
         response = requests.get(url, headers=headers)
         response_data = response.json()
         # print(response_data)
-        pcl_list.append(response_data)
+        value = response_data.get("value")
+        pcl_list.append(value)
     # print(pcl_list)
 
 
@@ -41,8 +42,9 @@ for train_line in lines_shorthand_list:
     response = requests.get(url, headers=headers)
     response_data = response.json()
     # print(response_data)
-    pcl_list.append(response_data)
-cron.schedule('*/2 * * * *', lambda cb: update_pcl())
+    value = response_data.get("value")
+    pcl_list.append(value)
+cron.schedule('*/3 * * * *', lambda cb: update_pcl())
 '''
 Train lines supported:
 • CCL (for Circle Line)
@@ -68,23 +70,20 @@ router = APIRouter(
 
 @router.get("")
 def platform_crowd_level(train_line: str):
-    # url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
-
-    # response = requests.get(url, headers=headers)
-    # response_data = response.json()
-
-    return ""
-
-
-@router.get("/{station_code}")
-def station_crowd_level(station_code: str):
-    for station in pcl_list["value"]:
-        if station["Station"] == station_code:
-            return station
-    # return pcl
-
+    for i in range(len(lines_shorthand_list)):
+        if train_line == lines_shorthand_list[i]:
+            return pcl_list[i]
 
 
 @router.get("/all")
 def platform_crowd_level_all():
+    # global pcl_list
     return pcl_list
+
+
+@router.get("/{station_code}")
+def station_crowd_level(station_code: str):
+    for line in pcl_list:
+        for station in line:
+            if station["Station"] == station_code:
+                return station
