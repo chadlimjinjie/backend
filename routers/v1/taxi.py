@@ -25,7 +25,7 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.send_text("taxi")
 
 
-@router.get("/")
+@router.get("")
 async def list_of_taxi_coordinate():
     res = requests.get(
         "https://api.data.gov.sg/v1/transport/taxi-availability")
