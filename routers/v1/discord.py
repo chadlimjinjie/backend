@@ -12,7 +12,7 @@ router = APIRouter(
 
 
 @router.post("/webhook")
-async def discord_webhook(body: dict):
+def discord_webhook(body: dict):
     embeds = body["embeds"]
     if embeds:
         body["embeds"] = json.loads(f"[{embeds}]".replace('}\n{', '},{'))
