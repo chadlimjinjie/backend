@@ -18,3 +18,9 @@ router = APIRouter(
 async def root():
     twitter_client.create_tweet(text="Hello, world!")
     return {}
+
+
+@router.post("")
+async def create_tweet(text: str):
+    tweet = twitter_client.create_tweet(text=text)
+    return tweet

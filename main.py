@@ -7,6 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from routers.v1 import disney_plus
 from routers.v1 import platform_crowd_level as pcl
 from routers.v1 import twitter
+from routers.v1 import discord
 
 HOST = "0.0.0.0"
 PORT = os.getenv("PORT") or 8080
@@ -15,6 +16,8 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 apiv1 = FastAPI()
+
+apiv1.include_router(discord.router)
 apiv1.include_router(disney_plus.router)
 apiv1.include_router(pcl.router)
 apiv1.include_router(twitter.router)
