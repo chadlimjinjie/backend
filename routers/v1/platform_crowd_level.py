@@ -74,7 +74,7 @@ def platform_crowd_level_all():
     return pcl_list
 
 
-@router.get("list-station")
+@router.get("/list-station")
 def platform_crowd_level_all():
     return lines_shorthand_list
 
