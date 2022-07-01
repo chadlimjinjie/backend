@@ -18,7 +18,7 @@ lines = {
     "SLRT": "Sengkang LRT",
     "PLRT": "Punggol LRT",
 }
-lines_shorthand_list = lines.keys()
+lines_shorthand_list = list(lines.keys())
 
 
 def update_pcl():
@@ -36,14 +36,15 @@ def update_pcl():
     # print(pcl_list)
 
 
-for train_line in lines_shorthand_list:
-    url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
+# for train_line in lines_shorthand_list:
+#     url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
 
-    response = requests.get(url, headers=headers)
-    response_data = response.json()
-    # print(response_data)
-    value = response_data.get("value")
-    pcl_list.append(value)
+#     response = requests.get(url, headers=headers)
+#     response_data = response.json()
+#     # print(response_data)
+#     value = response_data.get("value")
+#     pcl_list.append(value)
+update_pcl()
 cron.schedule('*/3 * * * *', lambda cb: update_pcl())
 '''
 Train lines supported:
@@ -70,6 +71,7 @@ router = APIRouter(
 
 @router.get("")
 def platform_crowd_level(train_line: str):
+    # print(lines_shorthand_list)
     for i in range(len(lines_shorthand_list)):
         if train_line == lines_shorthand_list[i]:
             return pcl_list[i]
