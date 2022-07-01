@@ -36,14 +36,6 @@ def update_pcl():
     # print(pcl_list)
 
 
-# for train_line in lines_shorthand_list:
-#     url = f"http://datamall2.mytransport.sg/ltaodataservice/PCDRealTime?TrainLine={train_line}"
-
-#     response = requests.get(url, headers=headers)
-#     response_data = response.json()
-#     # print(response_data)
-#     value = response_data.get("value")
-#     pcl_list.append(value)
 update_pcl()
 cron.schedule('*/3 * * * *', lambda cb: update_pcl())
 '''
@@ -79,8 +71,12 @@ def platform_crowd_level(train_line: str):
 
 @router.get("/all")
 def platform_crowd_level_all():
-    # global pcl_list
     return pcl_list
+
+
+@router.get("list-station")
+def platform_crowd_level_all():
+    return lines_shorthand_list
 
 
 @router.get("/{station_code}")
