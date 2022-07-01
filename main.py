@@ -1,3 +1,4 @@
+import os
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
@@ -8,7 +9,7 @@ from routers.v1 import platform_crowd_level as pcl
 from routers.v1 import twitter
 
 HOST = "0.0.0.0"
-PORT = 8080
+PORT = os.getenv("PORT") or 8080
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
