@@ -1,5 +1,8 @@
 {
     "dependencies": {
         "node-cron": ""
+    },
+    "scripts": {
+        "start": "python main.py"
     }
 }
