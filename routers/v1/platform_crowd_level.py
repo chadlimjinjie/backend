@@ -75,7 +75,7 @@ def platform_crowd_level_all():
 
 
 @router.get("/list-station")
-def platform_crowd_level_all():
+def list_station():
     return lines_shorthand_list
 
 
