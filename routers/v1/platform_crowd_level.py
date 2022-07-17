@@ -37,7 +37,7 @@ def update_pcl():
 
 
 update_pcl()
-cron.schedule('*/3 * * * *', lambda cb: update_pcl())
+cron.schedule('*/6 * * * *', lambda cb: update_pcl())
 '''
 Train lines supported:
 • CCL (for Circle Line)
