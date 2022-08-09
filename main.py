@@ -9,6 +9,7 @@ from routers.v1 import platform_crowd_level as pcl
 from routers.v1 import taxi
 from routers.v1 import twitter
 from routers.v1 import discord
+from routers.v1 import youtube
 
 HOST = "0.0.0.0"
 PORT = os.getenv("PORT") or 8080
@@ -24,6 +25,7 @@ apiv1.include_router(disney_plus.router)
 apiv1.include_router(pcl.router)
 apiv1.include_router(taxi.router)
 apiv1.include_router(twitter.router)
+apiv1.include_router(youtube.router)
 
 app.mount("/api/v1", apiv1)
 app.mount("/api/v2", apiv2)
