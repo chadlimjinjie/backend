@@ -48,7 +48,7 @@ def to_mp3(link: str):
         yt.streams.first().download()
         os.rename(f'{yt.title}.3gpp', f'{yt.title}.mp3')
         prev_mp3_title = yt.title + ".mp3"
-        return FileResponse(f'{yt.title}.mp3')
+        return FileResponse(f'{yt.title}.mp3', media_type="application/octet-stream", filename=prev_mp3_title)
     except Exception as e:
         print(e)
 
@@ -68,6 +68,6 @@ def to_mp4(link: str):
         yt.streams.filter(progressive=True, file_extension='mp4').order_by(
             'resolution').desc().first().download()
         prev_mp4_title = yt.title + ".mp4"
-        return FileResponse(f'{yt.title}.mp4')
+        return FileResponse(f'{yt.title}.mp4', media_type="application/octet-stream", filename=prev_mp4_title)
     except Exception as e:
         print(e)
