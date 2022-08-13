@@ -44,7 +44,7 @@ def to_mp3(link: str):
     yt = YouTube(link)
     try:
         print(yt.title)
-        yt.title = slugify(yt.title)
+        # yt.title = slugify(yt.title)
         yt.streams.first().download()
         os.rename(f'{yt.title}.3gpp', f'{yt.title}.mp3')
         prev_mp3_title = yt.title + ".mp3"
@@ -64,7 +64,7 @@ def to_mp4(link: str):
     yt = YouTube(link)
     try:
         print(yt.title)
-        yt.title = slugify(yt.title)
+        # yt.title = slugify(yt.title)
         yt.streams.filter(progressive=True, file_extension='mp4').order_by(
             'resolution').desc().first().download()
         prev_mp4_title = yt.title + ".mp4"
