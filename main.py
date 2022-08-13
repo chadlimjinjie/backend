@@ -15,10 +15,7 @@ from routers.v1 import youtube
 HOST = "0.0.0.0"
 PORT = os.getenv("PORT") or 8080
 origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:8080",
+    "*"
 ]
 
 app = FastAPI()
