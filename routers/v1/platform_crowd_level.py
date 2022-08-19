@@ -1,8 +1,13 @@
+import json
+import os
 from fastapi import APIRouter
 import requests
 from javascript import require
 
 cron = require("node-cron")
+
+with open(os.path.join(os.getcwd(), "static", "station.json")) as f:
+    station = json.load(f)
 
 pcl_list = []
 headers = {"AccountKey": "ShcXnDanSKqJ53wy47unFg=="}
@@ -61,27 +66,28 @@ router = APIRouter(
 )
 
 
+@router.get("/all")
+def all_lines_platform_crowd_level():
+    return pcl_list
+
+
 @router.get("")
-def platform_crowd_level(train_line: str):
+def line_platform_crowd_level(train_line: str):
     # print(lines_shorthand_list)
     for i in range(len(lines_shorthand_list)):
         if train_line == lines_shorthand_list[i]:
             return pcl_list[i]
 
 
-@router.get("/all")
-def platform_crowd_level_all():
-    return pcl_list
+@router.get("/list-mrt-stations")
+def list_mrt_lines():
+    # return lines_shorthand_list
+    return station
 
 
-@router.get("/list-station")
-def list_station():
-    return lines_shorthand_list
-
-
-@router.get("/{station_code}")
-def station_crowd_level(station_code: str):
+@router.get("/{platform_code}")
+def platform_crowd_level(platform_code: str):
     for line in pcl_list:
-        for station in line:
-            if station["Station"] == station_code:
-                return station
+        for platform in line:
+            if platform["Station"] == platform_code:
+                return platform
